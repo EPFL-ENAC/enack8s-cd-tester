@@ -1,0 +1,23 @@
+# https://github.com/EPFL-ENAC/epfl-enac-build-push-deploy-action#readme
+name: deploy
+
+"on":
+  push:
+    branches:
+      - dev
+      - test
+      - stage
+    tags: ["v*.*.*"]
+
+jobs:
+  deploy:
+    permissions:
+      contents: read
+      packages: write
+    uses: EPFL-ENAC/epfl-enac-build-push-deploy-action/.github/workflows/deploy.yml@9-feat-allow-to-update-multiple-argo-repos
+    secrets:
+      token: ${{ secrets.CD_TOKEN }}
+    with:
+      org: epfl-enac
+      repo: enack8s-cd-tester
+      argo_repository: "['EPFL-ENAC/enack8s-app-config', 'EPFL-ENAC/openshift-app-config']"
