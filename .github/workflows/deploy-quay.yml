@@ -1,12 +1,12 @@
 # https://github.com/EPFL-ENAC/epfl-enac-build-push-deploy-action#readme
-name: deploy
+name: deploy-quay
 
 "on":
   push:
     branches:
       - dev
-      - test
       - stage
+      - "ci-test/**"
     tags: ["v*.*.*"]
 
 jobs:
@@ -17,7 +17,12 @@ jobs:
     uses: EPFL-ENAC/epfl-enac-build-push-deploy-action/.github/workflows/deploy.yml@11-allow-to-push-to-custom-registry
     secrets:
       token: ${{ secrets.CD_TOKEN }}
+      registry_token: ${{ secrets.QUAY_TOKEN }}
     with:
+      # Optional inputs can be passed here
       org: epfl-enac
       repo: enack8s-cd-tester
-      # argo_repository: "['EPFL-ENAC/enack8s-app-config', 'EPFL-ENAC/openshift-app-config']"
+      argo_repository: "['EPFL-ENAC/openshift-app-config']"
+      registry: quay-its.epfl.ch
+      registry_path: svc1751
+      registry_username: svc1751+ghaction
