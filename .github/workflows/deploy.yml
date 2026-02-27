@@ -14,7 +14,7 @@ jobs:
     permissions:
       contents: read
       packages: write
-    uses: EPFL-ENAC/epfl-enac-build-push-deploy-action/.github/workflows/deploy.yml@11-allow-to-push-to-custom-registry
+    uses: EPFL-ENAC/epfl-enac-build-push-deploy-action/.github/workflows/deploy.yml@feat/15-scan-vulnerabilities
     secrets:
       token: ${{ secrets.CD_TOKEN }}
     with:
