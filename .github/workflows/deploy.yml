@@ -16,7 +16,7 @@ jobs:
       packages: write
     uses: EPFL-ENAC/epfl-enac-build-push-deploy-action/.github/workflows/deploy.yml@feat/multi-repo-build-push
     secrets:
-      gitops_token: ${{ secrets.CD_TOKEN }}
+      token: ${{ secrets.CD_TOKEN }}
       registry_token: ${{ secrets.GITHUB_TOKEN }}
       registry_token2: ${{ secrets.QUAY_TOKEN }}
     with:
