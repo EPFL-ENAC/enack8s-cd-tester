@@ -1,5 +1,5 @@
 FROM alpine:latest
 
-RUN apk update && apk policy zlib
+RUN apk update && apk update zlib
 
 CMD ["sh", "-c", "echo 'Hello! v1'"]

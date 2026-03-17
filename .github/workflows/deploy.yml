@@ -21,7 +21,7 @@ jobs:
     with:
       org: epfl-enac
       repo: enack8s-cd-tester
-      build_context: '[ "./frontend", "./backend" ]' # context paths to build
+      build_context: '[ "./frontend"]' #', "./backend" ]' # context paths to build
       registries: |
         [
           {
