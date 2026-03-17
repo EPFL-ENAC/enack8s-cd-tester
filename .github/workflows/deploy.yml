@@ -22,7 +22,7 @@ jobs:
     with:
       org: epfl-enac
       repo: enack8s-cd-tester
-      build_context: '[ "./frontend"]' #', "./backend" ]' # context paths to build
+      build_context: '[ "./test"]' #', "./backend" ]' # context paths to build
       # registry:
       registry_path: epfl-enac/enack8s-cd-tester
       # registry_username:
