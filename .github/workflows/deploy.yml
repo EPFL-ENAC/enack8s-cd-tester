@@ -4,7 +4,7 @@ name: deploy
 "on":
   push:
     branches:
-      - dev_
+      - dev
       - test
       - stage
     tags: ["v*.*.*"]
@@ -14,12 +14,24 @@ jobs:
     permissions:
       contents: read
       packages: write
-    uses: EPFL-ENAC/epfl-enac-build-push-deploy-action/.github/workflows/deploy.yml@feat/15-scan-vulnerabilities
+    uses: EPFL-ENAC/epfl-enac-build-push-deploy-action/.github/workflows/deploy.yml@feat/multi-repo-build-push
     secrets:
       token: ${{ secrets.CD_TOKEN }}
+      registry_token: ${{ secrets.QUAY_TOKEN }}
     with:
       org: epfl-enac
       repo: enack8s-cd-tester
       build_context: '[ "./frontend", "./backend" ]' # context paths to build
-      # argo_repository: "['EPFL-ENAC/enack8s-app-config', 'EPFL-ENAC/openshift-app-config']"
-      # skip_vulnerability_scan: true
+      registries: |
+        [
+          {
+            "registry": "ghcr.io",
+            "argo_repositories": ["EPFL-ENAC/enack8s-app-config"]
+          },
+          {
+            "registry": "quay-its.epfl.ch",
+            "registry_path": "svc1751",
+            "registry_username": "svc1751+ghaction",
+            "argo_repositories": ["EPFL-ENAC/openshift-app-config"]
+          }
+        ]

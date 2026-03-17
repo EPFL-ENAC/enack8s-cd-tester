@@ -4,9 +4,9 @@ name: deploy-quay
 "on":
   push:
     branches:
-      - dev
-      - stage
-      - "ci-test/**"
+      - dev_
+      - stage_
+      - "ci-test_/**"
     tags: ["v*.*.*"]
 
 jobs:
