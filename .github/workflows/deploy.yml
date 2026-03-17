@@ -14,7 +14,7 @@ jobs:
     permissions:
       contents: read
       packages: write
-    uses: EPFL-ENAC/epfl-enac-build-push-deploy-action/.github/workflows/deploy.yml@feat/nicdub-multi-repo
+    uses: EPFL-ENAC/epfl-enac-build-push-deploy-action/.github/workflows/deploy.yml@nicdub-multi-repo
     secrets:
       token: ${{ secrets.CD_TOKEN }}
       registry_token: ${{ secrets.QUAY_TOKEN }}
@@ -22,9 +22,9 @@ jobs:
       org: epfl-enac
       repo: enack8s-cd-tester
       build_context: '[ "./frontend"]' #', "./backend" ]' # context paths to build
-      # registry: 
+      # registry:
       registry_path: epfl-enac/enack8s-cd-tester
-      # registry_username: 
+      # registry_username:
       registry2: quay-its.epfl.ch
       registry_path2: svc1751
       registry_username2: svc1751+ghaction
