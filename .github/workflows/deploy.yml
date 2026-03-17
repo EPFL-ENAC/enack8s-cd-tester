@@ -16,7 +16,7 @@ jobs:
       packages: write
     uses: EPFL-ENAC/epfl-enac-build-push-deploy-action/.github/workflows/deploy.yml@nicdub-multi-repo
     secrets:
-      token: ${{ secrets.CD_TOKEN }}
+      gitops_token: ${{ secrets.CD_TOKEN }}
       registry_token: ${{ secrets.QUAY_TOKEN }}
     with:
       org: epfl-enac
