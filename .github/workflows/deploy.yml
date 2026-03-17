@@ -14,7 +14,7 @@ jobs:
     permissions:
       contents: read
       packages: write
-    uses: EPFL-ENAC/epfl-enac-build-push-deploy-action/.github/workflows/deploy.yml@feat/multi-repo-build-push
+    uses: EPFL-ENAC/epfl-enac-build-push-deploy-action/.github/workflows/deploy.yml@feat/nicdub-multi-repo
     secrets:
       token: ${{ secrets.CD_TOKEN }}
       registry_token: ${{ secrets.QUAY_TOKEN }}
@@ -22,16 +22,23 @@ jobs:
       org: epfl-enac
       repo: enack8s-cd-tester
       build_context: '[ "./frontend"]' #', "./backend" ]' # context paths to build
-      registries: |
-        [
-          {
-            "registry": "ghcr.io",
-            "argo_repositories": ["EPFL-ENAC/enack8s-app-config"]
-          },
-          {
-            "registry": "quay-its.epfl.ch",
-            "registry_path": "svc1751",
-            "registry_username": "svc1751+ghaction",
-            "argo_repositories": ["EPFL-ENAC/openshift-app-config"]
-          }
-        ]
+      # registry: 
+      registry_path: epfl-enac/enack8s-cd-tester
+      # registry_username: 
+      registry2: quay-its.epfl.ch
+      registry_path2: svc1751
+      registry_username2: svc1751+ghaction
+
+      # registries: |
+      #   [
+      #     {
+      #       "registry": "ghcr.io",
+      #       "argo_repositories": ["EPFL-ENAC/enack8s-app-config"]
+      #     },
+      #     {
+      #       "registry": "quay-its.epfl.ch",
+      #       "registry_path": "svc1751",
+      #       "registry_username": "svc1751+ghaction",
+      #       "argo_repositories": ["EPFL-ENAC/openshift-app-config"]
+      #     }
+      #   ]
