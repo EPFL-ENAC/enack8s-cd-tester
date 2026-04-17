@@ -23,23 +23,23 @@ jobs:
       org: epfl-enac
       repo: enack8s-cd-tester
       build_context: '[ "./test"]' #', "./backend" ]' # context paths to build
-      # # registry:
-      # registry_path: epfl-enac/enack8s-cd-tester
-      # # registry_username:
+      # registry:
+      registry_path: epfl-enac/enack8s-cd-tester
+      # registry_username:
       # registry2: quay-its.epfl.ch
       # registry_path2: svc1751
       # registry_username2: svc1751+ghaction
 
-      registries: |
-        [
-          {
-            "registry": "quay-its.epfl.ch",
-            "registry_path": "svc1751",
-            "registry_username": "svc1751+ghaction",
-            "argo_repositories": ["EPFL-ENAC/openshift-app-config"]
-          },
-          {
-            "registry": "ghcr.io",
-            "argo_repositories": ["EPFL-ENAC/enack8s-app-config"]
-          }
-        ]
+      # registries: |
+      #   [
+      #     {
+      #       "registry": "quay-its.epfl.ch",
+      #       "registry_path": "svc1751",
+      #       "registry_username": "svc1751+ghaction",
+      #       "argo_repositories": ["EPFL-ENAC/openshift-app-config"]
+      #     },
+      #     {
+      #       "registry": "ghcr.io",
+      #       "argo_repositories": ["EPFL-ENAC/enack8s-app-config"]
+      #     }
+      #   ]
