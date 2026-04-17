@@ -18,7 +18,7 @@ jobs:
     secrets:
       token: ${{ secrets.CD_TOKEN }}
       registry_token: ${{ secrets.QUAY_TOKEN }}
-      registry_token_2: ${{ secrets.GITHUB_TOKEN }}
+      # registry_token_2: ${{ secrets.GITHUB_TOKEN }}
     with:
       org: epfl-enac
       repo: enack8s-cd-tester
